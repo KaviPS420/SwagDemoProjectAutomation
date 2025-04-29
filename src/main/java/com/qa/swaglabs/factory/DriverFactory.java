@@ -16,14 +16,9 @@ public class DriverFactory {
 	WebDriver driver;
 	Properties prop;
 	
-	public void intiDriver(String browserName) {
+	public WebDriver intiDriver(String browserName) {
 		//Cross browser logic 
-		
-	}
-	public void initPro() {
-		//cross property or Env logic 
-		
-		String browserName = prop.getProperty("browser");
+		//String browserName = prop.getProperty("browser");
 		System.out.println("browser name is : " + browserName);
 
 		switch (browserName.toLowerCase().trim()) {
@@ -43,20 +38,36 @@ public class DriverFactory {
 		default:
 			System.out.println("plz pass the right browser name..." + browserName);
 			throw new BrowserExceptions(AppErrors.BROWSER_NOT_FOUND);
+		
+	}
+		
+		driver.manage().deleteAllCookies();
+		driver.manage().window().maximize();
+		driver.get("https://www.saucedemo.com/");
+		
+		return driver;
+		
+		
+		
+		
+		}
+	
+	public void initPro() {
+		//cross property or Env logic 
+		
+		
 			
 		}
 
-		driver.manage().deleteAllCookies();
-		driver.manage().window().maximize();
-	
+		
 
 		
-	}
-	
-	
-	
-	
-	
-	
-	
 }
+	
+	
+	
+
+	
+	
+	
+
