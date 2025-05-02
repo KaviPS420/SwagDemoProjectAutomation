@@ -1,5 +1,7 @@
 package com.qa.swaglabs.base;
 
+import java.util.Properties;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -9,6 +11,7 @@ import com.qa.swaglabs.pages.LoginPage;
 
 public class BaseTest {
 	DriverFactory df;
+	protected Properties prop;
 	protected WebDriver driver;
 	protected LoginPage loginpage;
 	
@@ -17,7 +20,8 @@ public class BaseTest {
 	@BeforeTest
 	public void setup() {
 		df= new DriverFactory();
-		driver = df.intiDriver("chrome");
+		prop = df.initPro();
+		driver = df.intiDriver(prop);
 		loginpage = new LoginPage(driver);
 	}
 

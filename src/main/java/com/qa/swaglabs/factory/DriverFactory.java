@@ -1,5 +1,8 @@
 package com.qa.swaglabs.factory;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
@@ -16,10 +19,12 @@ public class DriverFactory {
 	WebDriver driver;
 	Properties prop;
 	
-	public WebDriver intiDriver(String browserName) {
+	public WebDriver intiDriver(Properties prop) {
 		//Cross browser logic 
 		//String browserName = prop.getProperty("browser");
-		System.out.println("browser name is : " + browserName);
+		
+		String browserName = prop.getProperty("browser");
+		System.out.println("browser name is : " + prop);
 
 		switch (browserName.toLowerCase().trim()) {
 		case "chrome":
@@ -43,7 +48,7 @@ public class DriverFactory {
 		
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
-		driver.get("https://www.saucedemo.com/");
+		driver.get(prop.getProperty("url"));
 		
 		return driver;
 		
@@ -51,11 +56,20 @@ public class DriverFactory {
 		
 		
 		}
-	
-	public void initPro() {
+	//Init prop and return prop
+	public Properties initPro() {
 		//cross property or Env logic 
+		prop = new Properties();
+		try {
+			FileInputStream ip= new FileInputStream("./src/test/resource/config/config.properties");
+			prop.load(ip);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
-		
+		return prop;
 			
 		}
 
