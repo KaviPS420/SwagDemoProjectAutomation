@@ -11,6 +11,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import com.qa.swaglabs.constants.AppConstants;
 import com.qa.swaglabs.errors.AppErrors;
 import com.qa.swaglabs.exceptions.BrowserExceptions;
 
@@ -61,7 +62,7 @@ public class DriverFactory {
 		//cross property or Env logic 
 		prop = new Properties();
 		try {
-			FileInputStream ip= new FileInputStream("./src/test/resource/config/config.properties");
+			FileInputStream ip= new FileInputStream(AppConstants.CONFIG_FILE_PATH);
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
