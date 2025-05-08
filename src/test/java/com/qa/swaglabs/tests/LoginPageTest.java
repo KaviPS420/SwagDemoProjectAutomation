@@ -24,8 +24,9 @@ public class LoginPageTest extends BaseTest{
 	}
 	@Test(priority=3)
 	public void verifyDoLogin() {
-		String land = loginpage.doLogin(prop.getProperty("username"), ("password"));
-		Assert.assertEquals(land, "Swag Labs") ;		
+		invenPage = loginpage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
+		Assert.assertEquals(invenPage.getPageURl(),AppConstants.INVENTORY_PAGE_URL, AppErrors.URL_NOT_FOUND);
+				
 	}
 	
 }

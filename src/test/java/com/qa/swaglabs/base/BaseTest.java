@@ -8,12 +8,15 @@ import org.testng.annotations.BeforeTest;
 
 import com.qa.swaglabs.factory.DriverFactory;
 import com.qa.swaglabs.pages.LoginPage;
+import com.qa.swaglabs.pages.inventoryPage;
 
 public class BaseTest {
 	DriverFactory df;
+	WebDriver driver;
 	protected Properties prop;
-	protected WebDriver driver;
 	protected LoginPage loginpage;
+	protected inventoryPage invenPage;
+	
 	
 	
 	

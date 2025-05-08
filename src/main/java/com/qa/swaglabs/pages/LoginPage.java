@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage {
 
 	private WebDriver driver;
+	inventoryPage inpage ;
 	
 	//Creating page object using By locater 
 	private By username = By.id("user-name");
@@ -32,13 +33,13 @@ public class LoginPage {
 		return url;
 	}
 	
-	public String doLogin(String uname , String pwd) {
+	public inventoryPage doLogin(String uname , String pwd) {
 		driver.findElement(username).sendKeys(uname);
 		driver.findElement(password).sendKeys(pwd);
 		driver.findElement(login).click();
-		return driver.getTitle();
+		return new inventoryPage(driver);
 	}
-	
+	 
 	
 	
 	
