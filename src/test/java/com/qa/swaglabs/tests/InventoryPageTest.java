@@ -32,10 +32,23 @@ public class InventoryPageTest extends BaseTest {
 		Assert.assertEquals(invenPage.getLogo(),AppConstants.INVENTORY_PAGE_LOGO , AppErrors.INVENTORY_PAGE_LOGO_NOT_FOUND);
 	}
     
+	@Test(priority =4)
 	public void verifycartLink() {
-		Assert.assertEquals(invenPage.cartLink(), AppErrors.ELEMENT_NOT_FOUND);
+		boolean result = invenPage.cartLink();
+		Assert.assertTrue(result);
 	}
-	
+	@Test(priority =5)
+	public void verifyheader() {
+		Assert.assertEquals(invenPage.header(), "Products" , AppErrors.HEADER_NOT_FOUND);
+		
+	}
+	@Test(priority =6)
+	public void verifymenu() {
+		boolean result = invenPage.menu();
+		Assert.assertTrue(result);
+		
+		
+	}
 	
 	
 }
