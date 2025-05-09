@@ -1,7 +1,11 @@
 package com.qa.swaglabs.pages;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class inventoryPage {
 	WebDriver driver;
@@ -32,9 +36,9 @@ public class inventoryPage {
 	}
 	
 	public String getLogo() {
-		String lo = driver.findElement(logo).getText();
-		System.out.println("This is page Logo = " +lo);
-		return lo;
+		String llogo = driver.findElement(logo).getText();
+		System.out.println(llogo);
+		return llogo;
 	}
 	public boolean cartLink() {
 		return driver.findElement(cartLink).isDisplayed();
